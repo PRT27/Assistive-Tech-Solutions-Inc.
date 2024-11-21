@@ -1,45 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Assistive Tech Solutions Inc.</title>
-	<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistive Tech Solutions - About Us</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* Added golden brown background */
+        body {
+            background-color: #F5DEB3;
+        }
+    </style>
 </head>
 <body>
-	<header>
-		<div class="logo">ATS Logo</div>
-		<nav>
-			<ul>
-				<li><a href="#">Home</a></li>
-				<li><a href="#">About</a></li>
-				<li><a href="#">Services</a></li>
-				<li><a href="#">Contact</a></li>
-			</ul>
-		</nav>
-	</header>
-	<main>
-		<section class="hero">
-			<h1>Welcome to Assistive Tech Solutions Inc.</h1>
-			<p>Innovating assistive technology for a more inclusive world.</p>
-			<button>Learn More</button>
-		</section>
-		<section class="features">
-			<h1>Our Features</h1>
-			<ul>
-				<li>AI-powered assistive technology</li>
-				<li>Enhanced independence for visually impaired individuals</li>
-				<li>Collaboration with organizations to drive positive change</li>
-			</ul>
-		</section>
-	</main>
-	<footer>
-		<p>&copy; 2023 Assistive Tech Solutions Inc.</p>
-		<ul>
-			<li><a href="#">Contact Us</a></li>
-			<li><a href="#">Social Media</a></li>
-		</ul>
-	</footer>
-	<script src="script.js"></script>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="../images/logo.png" alt="ATS Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#" class="about-us-btn">About Us</a></li>
+                <li><a href="#" class="services-btn">Services</a></li>
+                <li><a href="#" class="contact-us-btn">Contact Us</a></li>
+                <li><a href="job-search.html" class="careers-JobSearch-btn">Careers JobSearch</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Main Content Section -->
+    <main>
+        <!-- Our Story, Services, and Contact Us sections -->
+        <section class="about-us-section">
+            <h1>About Us</h1>
+            <p>Assistive Tech Solutions Inc. (ATS) is a company that specializes in providing assistive technology solutions for individuals with disabilities. Our mission is to improve the lives of people with disabilities through technology.</p>
+            <!-- Chatbot Container -->
+            <div id="chatbot-container">
+                <h2>Ask Our Chatbot</h2>
+                <input type="text" id="user-input" placeholder="Type your question...">
+                <div id="chatbot-response"></div>
+            </div>
+            <!-- Chatbot Script -->
+            <script>
+                const chatbot = new ARANVIChatbot();
+                document.querySelector('#user-input').addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        const userQuestion = document.querySelector('#user-input').value;
+                        const response = chatbot.respond(userQuestion);
+                        document.querySelector('#chatbot-response').innerHTML = response;
+                    }
+                });
+            </script>
+        </section>
+        <section class="services-section">
+            <h1>Services</h1>
+            <ul>
+                <li>Assistive Technology Consulting Inc.</li>
+                <li>Accessibility Audits</li>
+                <li>Customized Assistive Technology Solutions Inc.</li>
+            </ul>
+            <button class="aran-vi-btn">ARAN-VI</button>
+        </section>
+        <section class="contact-us-section">
+            <h1>Contact Us</h1>
+            <p>Get in touch with us:</p>
+            <ul>
+                <li>Email: aran.assistivetechsolutions@gmail.com</li>
+                <li>Phone: +27768288371 | +27691823982</li>
+            </ul>
+            <p>Founder and Creator of ARAN-VI & ARAN-MR: Mr. N.P. Thwala</p>
+            <p>Communication Manager: Mr. B.MAKATHINI (bimbomakhathini@icloud.com)</p>
+        </section>
+        <!-- Copyright and Licensing Information -->
+        <footer>
+            <p>&copy; 2023 Assistive Tech Solutions Inc. &trade;</p>
+        </footer>
+    </main>
+    <script>
+        // Hide sections initially
+        document.querySelector('.about-us-section').style.display = 'none';
+        document.querySelector('.services-section').style.display = 'none';
+        document.querySelector('.contact-us-section').style.display = 'none';
+
+        // Add event listeners to buttons
+        document.querySelector('.about-us-btn').addEventListener('click', function() {
+            document.querySelector('.about-us-section').style.display = 'block';
+            document.querySelector('.services-section').style.display = 'none';
+            document.querySelector('.contact-us-section').style.display = 'none';
+        });
+        document.querySelector('.services-btn').addEventListener('click', function() {
+            document.querySelector('.about-us-section').style.display = 'none';
+            document.querySelector('.services-section').style.display = 'block';
+            document.querySelector('.contact-us-section').style.display = 'none';
+        });
+        document.querySelector('.contact-us-btn').addEventListener('click', function() {
+            document.querySelector('.about-us-section').style.display = 'none';
+            document.querySelector('.services-section').style.display = 'none';
+            document.querySelector('.contact-us-section').style.display = 'block';
+        });
+
+        // Add event listener to ARAN-VI button (if needed)
+        document.querySelector('.aran-vi-btn').addEventListener('click', function() {
+            alert('ARAN-VI button clicked!');
+        });
+    </script>
 </body>
 </html>
